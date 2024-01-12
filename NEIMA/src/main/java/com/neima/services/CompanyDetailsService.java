@@ -44,6 +44,7 @@ public class CompanyDetailsService {
 
 	}
 	
+	@Cacheable(value = "CompanyInfo")
 	public List<CompanyInfo> getAllCompanies(){
 		return companyRepo.findAll();
 	}

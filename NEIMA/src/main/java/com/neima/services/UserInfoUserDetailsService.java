@@ -13,7 +13,7 @@ import com.neima.entity.UserInfo;
 import com.neima.repository.UserInfoDetailsRepository;
 
 @Service
-public class UserInfoDetailsService implements UserDetailsService {
+public class UserInfoUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	UserInfoDetailsRepository userInfoDetailsRepo;

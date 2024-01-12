@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.neima.services.UserInfoDetailsService;
+import com.neima.services.UserInfoUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -22,7 +22,7 @@ public class SecurityConfig {
 	
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return new UserInfoDetailsService();
+		return new UserInfoUserDetailsService();
 	}
 
 	@Bean

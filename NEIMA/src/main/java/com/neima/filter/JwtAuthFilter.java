@@ -10,7 +10,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.neima.exceptions_and_errors.PanIdNotFoundException;
 import com.neima.services.JwtService;
 import com.neima.services.UserInfoUserDetailsService;
 
@@ -59,10 +58,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 				// Set the SecurtyContextHolder
 				SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 			}
-		}else {
-			throw new PanIdNotFoundException("Invalid Pan id / username");
-		}
-		
+		}		
 		filterChain.doFilter(request, response);
 	}
 

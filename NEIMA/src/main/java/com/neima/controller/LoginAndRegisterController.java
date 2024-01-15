@@ -1,18 +1,13 @@
 package com.neima.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neima.entity.CompanyInfo;
 import com.neima.entity.StudentInfo;
-import com.neima.exceptions_and_errors.ExceptionAndErrorResponse;
-import com.neima.exceptions_and_errors.PanIdAlreadyExistsException;
 import com.neima.services.CompanyDetailsService;
 import com.neima.services.StudentDetailsService;
 
@@ -37,13 +32,6 @@ public class LoginAndRegisterController {
 	@PostMapping("/register-student")
 	public StudentInfo registerNewStudent(@RequestBody StudentInfo studentInfo) {
 		return studentDetailsService.saveStudentDetails(studentInfo);
-	}
-
-	/************* Exception handling **************/
-	@ExceptionHandler(value = PanIdAlreadyExistsException.class)
-	@ResponseStatus(HttpStatus.CONFLICT)
-	public ExceptionAndErrorResponse handlePanIdAlreadyExistsException(PanIdAlreadyExistsException ex) {
-		return new ExceptionAndErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage());
 	}
 
 }

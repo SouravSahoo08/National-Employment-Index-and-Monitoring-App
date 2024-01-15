@@ -3,7 +3,6 @@ package com.neima.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,7 +18,6 @@ public class UserInfoUserDetailsService implements UserDetailsService {
 	UserInfoDetailsRepository userInfoDetailsRepo;
 
 	@Override
-	@Cacheable(value = "UserDetails")
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<UserInfo> userInfo = userInfoDetailsRepo.findByPan(username);
 

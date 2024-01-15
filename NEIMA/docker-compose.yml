@@ -1,0 +1,31 @@
+version: '3'
+services:
+  spring-boot-app:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/neima-db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+    depends_on:
+      - mysql
+      - redis
+      
+  mysql:
+    image: mysql
+    ports:
+      - "3307:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: neima123
+      MYSQL_DATABASE: neima-db
+      MYSQL_USER: NeimaDb
+      MYSQL_PASSWORD: neima123
+          
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"

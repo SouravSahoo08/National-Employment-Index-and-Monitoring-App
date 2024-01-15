@@ -106,6 +106,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>neima-application</finalName>
 	</build>
 
 </project>

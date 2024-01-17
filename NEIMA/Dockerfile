@@ -1,7 +1,12 @@
+# Stage 1: Build the application
+FROM maven:3.8.5-openjdk-17 AS build
+WORKDIR /home/app
+COPY src src
+COPY pom.xml .
+RUN mvn -e clean install -DskipTests
 
-
-FROM maven:3.8.5-openjdk-17
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml -e clean install -DskipTests
-ENTRYPOINT ["java","-jar","/home/app/target/neima-application.jar"]
+# Stage 2: Create a minimal runtime image
+FROM openjdk:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /home/app/target/neima-application.jar /app/neima-application.jar
+ENTRYPOINT ["java", "-jar", "/app/neima-application.jar"]

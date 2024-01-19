@@ -3,17 +3,15 @@ An application which presents an all in one solution for all the students and co
 
 ## Deployment
 
-#### 1) Pull the image
+#### 1) Clone the project in local repo
 ```
-docker pull souravsahoo08/neima-application
+git clone SouravSahoo08/National-Employment-Index-and-Monitoring-App
 ```
-#### 2) Make a copy of the repository from github
-#### 3) Go into the project directory using terminal.
-#### 4) Run docker-compose command.
+#### 2) Run Docker command in project directory
 ```
 docker-compose up -d --build
 ```
-#### Stopping container
+#### 3) Stopping container
 ```
 docker-compose down
 ```

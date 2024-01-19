@@ -5,7 +5,7 @@ An application which presents an all in one solution for all the students and co
 
 #### 1) Clone the project in local repo
 ```
-git clone SouravSahoo08/National-Employment-Index-and-Monitoring-App
+git clone https://github.com/SouravSahoo08/National-Employment-Index-and-Monitoring-App.git
 ```
 #### 2) Run Docker command in project directory
 ```
